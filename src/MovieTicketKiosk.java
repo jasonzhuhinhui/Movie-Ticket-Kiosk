@@ -60,11 +60,12 @@ public class MovieTicketKiosk {
         System.out.println("-----------------------------------------------------------------");
         System.out.println("Subtotal                                                 $"+subtotal);
         System.out.println("Member discount ("+discount+")                          -$"+discount*0.01*subtotal);
-        System.out.println("Tax (8.25%)");
+        System.out.println("Tax (8.25%)                                              $"+(subtotal - discount*0.01*subtotal)*0.00825);
+        System.out.println("TOTAL                                                    $"+(subtotal - discount*0.01*subtotal + (subtotal - discount*0.01*subtotal)*0.00825));
         
-
-
-
+        System.out.println("=================================================================");
+        System.out.println("Thank you, "+getInitial(name)+" - enjory "+title+"!");
+        System.out.println("=================================================================");
     }
     
 }

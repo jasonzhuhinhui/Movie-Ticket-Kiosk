@@ -20,6 +20,9 @@ public class MovieTicketKiosk {
         String seatnum = "Row " + row + "    Seat " + seat;
         return seatnum;
     }
+    public static double round(double n){
+        return (int)(n*100 + 0.5) / 100.0;
+    }
 
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
@@ -43,6 +46,7 @@ public class MovieTicketKiosk {
 
         double subtotal = ticket*numTicket + popcorn*numPopcorn + drink*numDrink;
         int discount = (int)(Math.random()*10 +6);
+    
 
         System.out.println("");
         System.out.println("=================================================================");
@@ -55,15 +59,15 @@ public class MovieTicketKiosk {
 
         System.out.println("=================================================================");
         System.out.println("ITEM                       QTY         PRICE          TOTAL");
-        System.out.println("Ticket                     "+numTicket+"            "+"$"+ticket+"        $"+ticket*numTicket);
-        System.out.println("Popcorn                    "+numPopcorn+"            "+"$"+popcorn+"        $"+popcorn*numPopcorn);
-        System.out.println("Drink                      "+numDrink+"            "+"$"+drink+"        $"+drink*numDrink);
+        System.out.println("Ticket                     "+numTicket+"           "+"$"+ticket+"          $"+ticket*numTicket);
+        System.out.println("Popcorn                    "+numPopcorn+"           "+"$"+popcorn+"          $"+popcorn*numPopcorn);
+        System.out.println("Drink                      "+numDrink+"           "+"$"+drink+"          $"+drink*numDrink);
 
         System.out.println("-----------------------------------------------------------------");
         System.out.println("Subtotal                                             $"+subtotal);
-        System.out.println("Member discount ("+discount+"%)                                -$"+discount*0.01*subtotal);
-        System.out.println("Tax (8.25%)                                          $"+(subtotal - discount*0.01*subtotal)*0.00825);
-        System.out.println("TOTAL                                                $"+(subtotal - discount*0.01*subtotal + (subtotal - discount*0.01*subtotal)*0.0825));
+        System.out.println("Member discount ("+discount+"%)                               -$"+round(discount*0.01*subtotal));
+        System.out.println("Tax (8.25%)                                          $"+round((subtotal - discount*0.01*subtotal)*0.00825));
+        System.out.println("TOTAL                                                $"+round((subtotal - discount*0.01*subtotal + (subtotal - discount*0.01*subtotal)*0.0825)));
         
         System.out.println("=================================================================");
         System.out.println("Thank you, "+getInitial(name)+" - enjory "+title+"!");
